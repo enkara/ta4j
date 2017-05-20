@@ -1,4 +1,3 @@
-#
 # ta4j [![Build Status](https://travis-ci.org/mdeverdelhan/ta4j.png?branch=master)](https://travis-ci.org/mdeverdelhan/ta4j)
 
 ***Technical Analysis For Java***

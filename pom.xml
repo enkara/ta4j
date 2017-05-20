@@ -55,7 +55,6 @@
     <modules>
         <module>ta4j</module>
         <module>ta4j-examples</module>
-        <!-- module>ti-ta4j-addon</module -->
     </modules>
 
     <properties>
