@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2014-2016 Marc de Verdelhan & respective authors (see AUTHORS)
+ * Copyright (c) 2014-2017 Marc de Verdelhan & respective authors (see AUTHORS)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -22,7 +22,6 @@
  */
 package eu.verdelhan.ta4j.indicators;
 
-import eu.verdelhan.ta4j.Decimal;
 import eu.verdelhan.ta4j.Indicator;
 import eu.verdelhan.ta4j.TimeSeries;
 import org.slf4j.Logger;
@@ -37,7 +36,7 @@ public abstract class AbstractIndicator<T> implements Indicator<T> {
     /** The logger */
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
-    private final TimeSeries series;
+    private TimeSeries series;
 
     /**
      * Constructor.
@@ -55,17 +54,5 @@ public abstract class AbstractIndicator<T> implements Indicator<T> {
     @Override
     public String toString() {
         return getClass().getSimpleName();
-    }
-    
-    public double getTwoDigitValue(int index){
-       double val =0.0;
-       Object obj = getValue(index);
-       if (obj instanceof Decimal) {
-         val = ((Decimal)getValue(index)).toDouble();
-       } else if (obj instanceof Number) {
-          val = ((Number) obj).doubleValue();
-       }
-          
-      return Decimal.round2Digits(val);
     }
 }
