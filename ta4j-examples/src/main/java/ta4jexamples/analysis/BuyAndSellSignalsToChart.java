@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2014-2016 Marc de Verdelhan & respective authors (see AUTHORS)
+ * Copyright (c) 2014-2017 Marc de Verdelhan & respective authors (see AUTHORS)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -84,13 +84,13 @@ public class BuyAndSellSignalsToChart {
             double buySignalTickTime = new Minute(series.getTick(trade.getEntry().getIndex()).getEndTime().toDate()).getFirstMillisecond();
             Marker buyMarker = new ValueMarker(buySignalTickTime);
             buyMarker.setPaint(Color.GREEN);
-            buyMarker.setLabel("Buy");
+            buyMarker.setLabel("B");
             plot.addDomainMarker(buyMarker);
             // Sell signal
             double sellSignalTickTime = new Minute(series.getTick(trade.getExit().getIndex()).getEndTime().toDate()).getFirstMillisecond();
             Marker sellMarker = new ValueMarker(sellSignalTickTime);
-            buyMarker.setPaint(Color.RED);
-            sellMarker.setLabel("SELL");
+            sellMarker.setPaint(Color.RED);
+            sellMarker.setLabel("S");
             plot.addDomainMarker(sellMarker);
         }
     }

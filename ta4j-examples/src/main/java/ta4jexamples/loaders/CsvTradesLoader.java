@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2014-2016 Marc de Verdelhan & respective authors (see AUTHORS)
+ * Copyright (c) 2014-2017 Marc de Verdelhan & respective authors (see AUTHORS)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -30,6 +30,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,6 +78,8 @@ public class CsvTradesLoader {
                 Instant endInstant = endTime.toInstant();
                 beginTime = new DateTime(endInstant);
                 endTime = new DateTime(beginInstant);
+                // Since the CSV file has the most recent trades at the top of the file, we'll reverse the list to feed the List<Tick> correctly.
+                Collections.reverse(lines);
             }
             // Building the empty ticks (every 300 seconds, yeah welcome in Bitcoin world)
             ticks = buildEmptyTicks(beginTime, endTime, 300);
