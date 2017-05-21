@@ -470,5 +470,28 @@ public final class Decimal implements Comparable<Decimal>, Serializable {
    public static double round2Digits(double value) {
       return round(value, 2);
    }
+    /**
+     * Returns a {@code Decimal} whose value is the absolute value
+     * of this {@code Decimal}.
+     * @return {@code abs(this)}
+     */
+    public Decimal roundUp2Digts() {
+        if (this == NaN) {
+            return NaN;
+        }
+        return new Decimal(delegate.setScale(2, RoundingMode.HALF_UP));
+    }
+    /**
+     * Returns a {@code Decimal} whose value is the absolute value
+     * of this {@code Decimal}.
+     * @return {@code abs(this)}
+     */
+    public Decimal roundUp4Digts() {
+        if (this == NaN) {
+            return NaN;
+        }
+        return new Decimal(delegate.setScale(4, RoundingMode.HALF_UP));
+    }
+
 
 }
